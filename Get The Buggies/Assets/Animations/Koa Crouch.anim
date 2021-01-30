@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Koa Run
+  m_Name: Koa Crouch
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,18 +20,18 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: aac848f6dfae3974095cf2a4f1722892, type: 3}
-    - time: 0.083333336
-      value: {fileID: 21300000, guid: e904e075d2f2d9848a491763f6036605, type: 3}
+      value: {fileID: 21300000, guid: 1f4adac6ea794684493261ddc901a4b5, type: 3}
     - time: 0.16666667
-      value: {fileID: 21300000, guid: 5a8c4651b211893449365c87b8511d32, type: 3}
-    - time: 0.25
-      value: {fileID: 21300000, guid: 4fa54b9d849b08546a8171601a8f163d, type: 3}
+      value: {fileID: 21300000, guid: e40cb4726325aef43a922981d4bc5045, type: 3}
+    - time: 0.33333334
+      value: {fileID: 21300000, guid: a993fb6a9e9fd94439aac84f8c996915, type: 3}
+    - time: 0.5
+      value: {fileID: 21300000, guid: e40cb4726325aef43a922981d4bc5045, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 12
+  m_SampleRate: 6
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -46,16 +46,16 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: aac848f6dfae3974095cf2a4f1722892, type: 3}
-    - {fileID: 21300000, guid: e904e075d2f2d9848a491763f6036605, type: 3}
-    - {fileID: 21300000, guid: 5a8c4651b211893449365c87b8511d32, type: 3}
-    - {fileID: 21300000, guid: 4fa54b9d849b08546a8171601a8f163d, type: 3}
+    - {fileID: 21300000, guid: 1f4adac6ea794684493261ddc901a4b5, type: 3}
+    - {fileID: 21300000, guid: e40cb4726325aef43a922981d4bc5045, type: 3}
+    - {fileID: 21300000, guid: a993fb6a9e9fd94439aac84f8c996915, type: 3}
+    - {fileID: 21300000, guid: e40cb4726325aef43a922981d4bc5045, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.33333334
+    m_StopTime: 0.6666667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
