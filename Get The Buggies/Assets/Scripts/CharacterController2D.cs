@@ -12,6 +12,15 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private Transform m_CeilingCheck;                          // A position marking where to check for ceilings
 	[SerializeField] private Collider2D m_CrouchDisableCollider;                // A collider that will be disabled when crouching
 
+	[HideInInspector]
+	public float timeSinceSuperJump;
+	// Super jump cooldown, in seconds
+	public float superJumpCD;
+	public float superJumpMult = 2;
+	// Initialize superJumpStartTime to a large negative number
+	private float superJumpStartTime = -1000;
+	private bool m_wasCrouching = false;
+
 	const float k_GroundedRadius = .05f; // Radius of the overlap circle to determine if grounded
 	private bool m_Grounded;            // Whether or not the player is grounded.
 	const float k_CeilingRadius = .2f; // Radius of the overlap circle to determine if the player can stand up
@@ -28,7 +37,8 @@ public class CharacterController2D : MonoBehaviour
 	public class BoolEvent : UnityEvent<bool> { }
 
 	public BoolEvent OnCrouchEvent;
-	private bool m_wasCrouching = false;
+	public BoolEvent OnLookingUpEvent;
+
 
 	private void Awake()
 	{
@@ -39,7 +49,10 @@ public class CharacterController2D : MonoBehaviour
 
 		if (OnCrouchEvent == null)
 			OnCrouchEvent = new BoolEvent();
-	}
+
+        if (OnLookingUpEvent == null)
+            OnLookingUpEvent = new BoolEvent();
+    }
 
 	private void FixedUpdate()
 	{
@@ -61,7 +74,7 @@ public class CharacterController2D : MonoBehaviour
 	}
 
 
-	public void Move(float move, bool crouch, bool jump)
+	public void Move(float move, bool crouch, bool jump, bool lookingUp)
 	{
 		// If crouching, check to see if the character can stand up
 		if (!crouch)
@@ -76,6 +89,14 @@ public class CharacterController2D : MonoBehaviour
 		//only control the player if grounded or airControl is turned on
 		if (m_Grounded || m_AirControl)
 		{
+			if (lookingUp)
+			{
+				OnLookingUpEvent.Invoke(true);
+			}
+			else
+			{
+				OnLookingUpEvent.Invoke(false);
+			}
 
 			// If crouching
 			if (crouch)
@@ -129,8 +150,22 @@ public class CharacterController2D : MonoBehaviour
 		{
 			// Add a vertical force to the player.
 			m_Grounded = false;
-			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
-		}
+
+			timeSinceSuperJump = Time.time - superJumpStartTime;
+			Debug.Log("looking up is " + lookingUp);
+
+			// Super jump if we jump while looking up and the cooldown has passed.
+			if (lookingUp && (timeSinceSuperJump > superJumpCD))
+			{
+				Debug.Log("Jumpin");
+				superJumpStartTime = Time.time;
+				m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce * superJumpMult));
+			}
+			else
+			{
+				m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+			}
+		} 
 	}
 
 
