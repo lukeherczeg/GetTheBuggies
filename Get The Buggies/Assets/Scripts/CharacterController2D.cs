@@ -12,6 +12,8 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private Transform m_CeilingCheck;                          // A position marking where to check for ceilings
 	[SerializeField] private Collider2D m_CrouchDisableCollider;                // A collider that will be disabled when crouching
 
+	public GameObject bigJumpOn, bigJumpOff;
+
 	[HideInInspector]
 	public float timeSinceSuperJump;
 	// Super jump cooldown, in seconds
@@ -19,12 +21,19 @@ public class CharacterController2D : MonoBehaviour
 	public float superJumpMult = 2;
 	// Initialize superJumpStartTime to a large negative number
 	private float superJumpStartTime = -1000;
+	private float normalJumpStartTime = 100;
 	private bool m_wasCrouching = false;
 
 	const float k_GroundedRadius = .05f; // Radius of the overlap circle to determine if grounded
-	private bool m_Grounded;            // Whether or not the player is grounded.
+	[HideInInspector] 
+	public bool m_Grounded;            // Whether or not the player is grounded.
+
+
 	const float k_CeilingRadius = .2f; // Radius of the overlap circle to determine if the player can stand up
-	private Rigidbody2D m_Rigidbody2D;
+	
+	[HideInInspector]
+	public Rigidbody2D m_Rigidbody2D;
+
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
 
@@ -67,8 +76,10 @@ public class CharacterController2D : MonoBehaviour
 			if (colliders[i].gameObject != gameObject)
 			{
 				m_Grounded = true;
-				if (!wasGrounded)
+				if (!wasGrounded && (Time.time - normalJumpStartTime > .02f))
+				{
 					OnLandEvent.Invoke();
+				}
 			}
 		}
 	}
@@ -152,20 +163,31 @@ public class CharacterController2D : MonoBehaviour
 			m_Grounded = false;
 
 			timeSinceSuperJump = Time.time - superJumpStartTime;
-			Debug.Log("looking up is " + lookingUp);
 
 			// Super jump if we jump while looking up and the cooldown has passed.
 			if (lookingUp && (timeSinceSuperJump > superJumpCD))
 			{
-				Debug.Log("Jumpin");
 				superJumpStartTime = Time.time;
+				normalJumpStartTime = Time.time;
 				m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce * superJumpMult));
 			}
 			else
 			{
+				normalJumpStartTime = Time.time;
 				m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
 			}
-		} 
+		}
+
+		if (Time.time - superJumpStartTime > superJumpCD)
+		{
+			bigJumpOn.SetActive(true);
+			bigJumpOff.SetActive(false);
+		}
+		else
+		{
+			bigJumpOn.SetActive(false);
+			bigJumpOff.SetActive(true);
+		}
 	}
 
 
