@@ -37,7 +37,7 @@ public class Ground : ObjectEntity
     {
         if (Time.time - timeAtStart < 3)
         {
-            scrollSpeedVariable += .0001f;
+            scrollSpeedVariable += .00005f;
         }
         else
         {

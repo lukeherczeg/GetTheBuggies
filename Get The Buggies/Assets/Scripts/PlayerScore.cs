@@ -10,7 +10,7 @@ public class PlayerScore : MonoBehaviour
 
     void Update()
     {
-        playerScoreUI.gameObject.GetComponent<Text>().text = ("'Buggies' Gotten: " + playerScore);
+        playerScoreUI.gameObject.GetComponent<Text>().text = ("'Buggies' Collected:  " + playerScore);
     }
 
     void OnTriggerEnter2D(Collider2D trig)

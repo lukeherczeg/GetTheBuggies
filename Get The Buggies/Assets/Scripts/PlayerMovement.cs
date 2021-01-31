@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
 	{
 		if (gameOver)
 		{
-			if ((Time.time - timeSinceDeath > 2.5))
+			if ((Time.time - timeSinceDeath > 2.2))
 			{
 				SceneManager.LoadScene(2);
 			}
@@ -123,6 +123,8 @@ public class PlayerMovement : MonoBehaviour
 			// Moves player to the left, simulating movement to the right
 			if (controller.m_Grounded)
 				controller.m_Rigidbody2D.position -= new Vector2(ground.scrollSpeedVariable, 0);
+			else
+				controller.m_Rigidbody2D.position -= new Vector2(ground.scrollSpeedVariable/2, 0);
 		}
 	}
 
