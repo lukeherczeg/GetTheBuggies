@@ -10,7 +10,7 @@ ________________________________________________________________________________
 _______________________________________________________________________________________________________________________________________
 
 ## Inspiration:
-My cat Koa, a beast of burden, was the entire inspiration for this project. She chases household items that she thinks are buggies! However, we both really wanted to make a 2d game that we could consider a complete work, and this was the most fun and adorable thing we could think of.
+My cat Koa, a beast of burden (and infinite love), was the entire inspiration for this project. She chases household items that she thinks are buggies! However, we both really wanted to make a 2d game that we could consider a complete work, and this was the most fun and adorable thing we could think of.
 ## What it does:
 It's a retro style, infinitely side-scrolling platformer! Though it's primary purpose is to provide you with entertainment, I find that it also invokes heavy feelings of *cuteness* as well. 
 ## How we built it:
