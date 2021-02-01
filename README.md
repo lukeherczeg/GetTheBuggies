@@ -1,4 +1,4 @@
-<img src = "https://cdn.discordapp.com/attachments/347967840655245316/805852350555488256/cover_art.png" height = "80%" width = "80%">
+<img src = "https://cdn.discordapp.com/attachments/347967840655245316/805852350555488256/cover_art.png">
 
 
 ### Created by: Luke Herczeg & Rachel West
