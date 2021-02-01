@@ -5,7 +5,7 @@ ________________________________________________________________________________
 
 ## [Video Demo](https://www.youtube.com/watch?v=sJOKg8VoT5E "Demo")
 ## [Official Project Submission](https://www.youtube.com/watch?v=sJOKg8VoT5E "Demo")
-## **Go play our game in-browser @ [Itch.io](https://lukeherczeg.itch.io/get-the-buggies)!**
+## [Play our game in-browser](https://lukeherczeg.itch.io/get-the-buggies)!**
 
 ## Inspiration:
 My cat Koa, a beast of burden, was the entire inspiration for this project. She chases household items that she thinks are buggies! However, we both really wanted to make a 2d game that we could consider a complete work, and this was the most fun and adorable thing we could think of.
