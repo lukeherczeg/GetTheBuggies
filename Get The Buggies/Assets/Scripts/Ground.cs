@@ -9,7 +9,7 @@ public class Ground : ObjectEntity
     private float groundBlockYPos;
     private Vector3 lastEndPosition;
     private float timeAtStart;
-    private float scrollSpeedMax = .035f;
+    private float scrollSpeedMax = .045f;
     private bool reachedMaxScrollSpeed = false;
 
     private void Awake() {
@@ -43,7 +43,7 @@ public class Ground : ObjectEntity
         {
             if (scrollSpeedVariable < scrollSpeedMax && !reachedMaxScrollSpeed)
             {
-                scrollSpeedVariable += .0005f;
+                scrollSpeedVariable += .00007f;
             }
             else
             {
@@ -52,7 +52,7 @@ public class Ground : ObjectEntity
         }
 
         if (reachedMaxScrollSpeed) {
-            scrollSpeedVariable += .000005f;
+            scrollSpeedVariable += .000002f;
         }
 
         MoveObjectEntities();

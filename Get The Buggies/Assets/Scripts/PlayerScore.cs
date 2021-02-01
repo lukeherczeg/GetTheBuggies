@@ -7,10 +7,22 @@ public class PlayerScore : MonoBehaviour
 {
     private int playerScore = 0;
     public GameObject playerScoreUI;
+    private AudioSource audioSource;
+
+
+    void Start() {
+        audioSource = gameObject.GetComponent<AudioSource>();
+    }
+
 
     void Update()
-    {
+    {        
         playerScoreUI.gameObject.GetComponent<Text>().text = ("'Buggies' Collected:  " + playerScore);
+    }
+
+    void OnDisable()
+    {
+        PlayerPrefs.SetInt("score", playerScore);
     }
 
     void OnTriggerEnter2D(Collider2D trig)
@@ -22,6 +34,7 @@ public class PlayerScore : MonoBehaviour
             trig.gameObject.name == "Mousie Toy(Clone)")
         {
             playerScore += 1;
+            audioSource.PlayOneShot(audioSource.clip, .5f);
             Destroy(trig.gameObject);
         }
     }
