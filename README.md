@@ -2,7 +2,7 @@
 
 
 ### Created by: Luke Herczeg & Rachel West
-* **Luke Herczeg** - _Programmer & Designer_ - [GitHub](https://github.com/lukeherczeg) - [LinkedIn](linkedin.com/lukeherczeg)
+* **Luke Herczeg** - _Programmer & Designer_ - [GitHub](https://github.com/lukeherczeg) - [LinkedIn](linkedin.com/in/lukeherczeg)
 * **Rachel West** - _Artist & Designer_ - [GitHub](https://github.com/rachel-west) - [DeviantArt](piggyplum.deviantart.com)
 _______________________________________________________________________________________________________________________________________
 
