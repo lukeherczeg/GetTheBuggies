@@ -2,6 +2,8 @@
 
 
 ### Created by: Luke Herczeg & Rachel West
+* **Luke Herczeg** - _Programmer & Designer_ - [GitHub](https://github.com/lukeherczeg)
+* **Rachel West** - _Artist & Designer_ - [GitHub](https://github.com/rachel-west) [DeviantArt](piggyplum.deviantart.com)
 _______________________________________________________________________________________________________________________________________
 
 ### [Play our game in-browser!](https://lukeherczeg.itch.io/get-the-buggies "Itch.io Page")
@@ -15,7 +17,7 @@ My cat Koa, a beast of burden (and infinite love), was the entire inspiration fo
 ## What it does:
 It's a retro style, infinitely side-scrolling platformer! Though it's primary purpose is to provide you with entertainment, I find that it also invokes heavy feelings of *cuteness* as well. 
 ## How we built it:
-We built it with Unity, with **all** assets in the game being created solely by Rachel. She's a fantastically skilled artist and enjoys pixel art (which I was happy to hear, as it's one of my favorite themes). I worked quickly in Unity to bring her illustrations to life, and I'm happy to say we implemented almost every feature we initially thought of for the game!
+We built it with Unity, with **all** assets in the game being created solely by [Rachel](https://github.com/rachel-west). She's a fantastically skilled artist and enjoys pixel art (which I was happy to hear, as it's one of my favorite themes). I worked quickly in Unity to bring her illustrations to life, and I'm happy to say we implemented almost every feature we initially thought of for the game!
 ## Challenges we ran into:
 Implementing everything in the allotted time period was our largest challenge. It was certainly a lot of drawing for Rachel, and for me it was a lot of code and hard work to get random generation and all of the core game loop working. This is one of the only experiences I've had being the sole programmer on a project, and though it was a lot of work, it was quite freeing and I enjoyed it a lot.
 ## Accomplishments that we're proud of:
