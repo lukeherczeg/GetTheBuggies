@@ -4,7 +4,7 @@
 _______________________________________________________________________________________________________________________________________
 
 ## [Video Demo](https://www.youtube.com/watch?v=sJOKg8VoT5E "Demo")
-## [Official Project Submission](https://www.youtube.com/watch?v=sJOKg8VoT5E "Prject Submission")
+## [Official Project Submission](https://devpost.com/software/get-the-buggies "Prject Submission")
 ## [Play our game in-browser!](https://lukeherczeg.itch.io/get-the-buggies "Itch.io Page")
 
 ## Inspiration:
