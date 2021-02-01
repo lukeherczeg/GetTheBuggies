@@ -29,7 +29,7 @@ ________________________________________________________________________________
 
 ### •	Random infinite obstacle and collectable generation
 
-### •	'Big Jump' special ability, using a combination of buttons
+### • Big Jump special ability, using a combination of buttons
  
 ### •	Crouching mechanic to go under certain obstacles
 
