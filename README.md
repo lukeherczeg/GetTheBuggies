@@ -3,9 +3,9 @@
 ### Created by: Luke Herczeg & Rachel West
 _______________________________________________________________________________________________________________________________________
 
+### [Play our game in-browser!](https://lukeherczeg.itch.io/get-the-buggies "Itch.io Page")
 ### [Video Demo](https://www.youtube.com/watch?v=sJOKg8VoT5E "Demo")
 ### [Official Project Submission](https://devpost.com/software/get-the-buggies "Project Submission")
-### [Play our game in-browser!](https://lukeherczeg.itch.io/get-the-buggies "Itch.io Page")
 
 _______________________________________________________________________________________________________________________________________
 
