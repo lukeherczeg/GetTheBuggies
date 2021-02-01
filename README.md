@@ -3,7 +3,7 @@
 
 ### Created by: Luke Herczeg & Rachel West
 * **Luke Herczeg** - _Programmer & Designer - **[GitHub](https://github.com/lukeherczeg) - [LinkedIn](https://linkedin.com/in/lukeherczeg)**_
-* **Rachel West** - _Artist & Designer - **[GitHub](https://github.com/rachel-west) - [DeviantArt](https://piggyplum.deviantart.com)**_
+* **Rachel West** - _Artist & Designer - **[GitHub](https://github.com/rachel-west) - [Twitter](https://twitter.com/Piggyplum)**_
 _______________________________________________________________________________________________________________________________________
 
 ### [Play our game in-browser!](https://lukeherczeg.itch.io/get-the-buggies "Itch.io Page")
