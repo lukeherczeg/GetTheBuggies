@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObjectEntity : MonoBehaviour
 {
 
-    protected const float PLAYER_DISTANCE_SPAWN_RADIUS = 25f;
+    protected const float PLAYER_DISTANCE_SPAWN_RADIUS = 23f;
 
     [SerializeField] protected List<Transform> spawnedObjectEntities;
     [SerializeField] protected List<Transform> objectEntityList;
@@ -34,8 +34,8 @@ public class ObjectEntity : MonoBehaviour
         return (Vector3.Distance(player.m_Rigidbody2D.transform.position, position) < PLAYER_DISTANCE_SPAWN_RADIUS);
     }
     
-    protected bool CanDeleteObjectEntity(Vector3 position) { 
-        return (Vector3.Distance(player.m_Rigidbody2D.transform.position, position) > PLAYER_DISTANCE_SPAWN_RADIUS);
+    protected bool CanDeleteObjectEntity(Vector3 position, float spawnRadius = PLAYER_DISTANCE_SPAWN_RADIUS) { 
+        return (Vector3.Distance(player.m_Rigidbody2D.transform.position, position) > spawnRadius);
     }
 
     protected void DeleteLeftMostObjectEntity() {
@@ -60,7 +60,7 @@ public class ObjectEntity : MonoBehaviour
 
     protected void MoveObjectEntities() {
         spawnedObjectEntities.ForEach((objectEntity) => {
-            objectEntity.position -= new Vector3(scrollSpeedVariable * Time.deltaTime, 0, 0);
+            objectEntity.position -= new Vector3(scrollSpeedVariable, 0, 0);
             }
         );
     }

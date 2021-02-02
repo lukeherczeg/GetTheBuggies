@@ -169,7 +169,8 @@ public class CharacterController2D : MonoBehaviour
 			{
 				superJumpStartTime = Time.time;
 				normalJumpStartTime = Time.time;
-				m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce * superJumpMult));
+				// Super jump is subtracted by a little bit if it's hard mode :)
+				m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce * superJumpMult - (PlayerPrefs.GetInt("Difficulty") * 100)));
 			}
 			else
 			{

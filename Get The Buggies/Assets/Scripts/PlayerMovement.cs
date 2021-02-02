@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
 	bool lookingUp = false;
 	bool gameOver = false;
 
+	private float timeSinceStart;
 	private float timeSinceDeath = -1000;
 
 	private bool isJoyStick = false;
@@ -34,7 +35,12 @@ public class PlayerMovement : MonoBehaviour
 	public void OnLookingUp(bool isLookingUp) {
 		animator.SetBool("IsLookingUp", isLookingUp);
 	}
-		
+
+	public void Start() {
+		timeSinceStart = Time.time;
+	}
+
+
 	// Update is called once per frame
 	void Update()
 	{
@@ -42,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
 		{
 			if ((Time.time - timeSinceDeath > 2.2))
 			{
-				SceneManager.LoadScene(2);
+				SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 			}
 			ground.scrollSpeedVariable = 0;
 		}
@@ -119,12 +125,6 @@ public class PlayerMovement : MonoBehaviour
 					crouch = false;
 				}
 			}
-
-			// Moves player to the left, simulating movement to the right
-			if (controller.m_Grounded)
-				controller.m_Rigidbody2D.position -= new Vector2(ground.scrollSpeedVariable, 0);
-			else
-				controller.m_Rigidbody2D.position -= new Vector2(ground.scrollSpeedVariable/2, 0);
 		}
 	}
 
@@ -139,6 +139,7 @@ public class PlayerMovement : MonoBehaviour
 			animator.SetBool("IsFalling", false);
 			ground.scrollSpeedVariable = 0;
 			timeSinceDeath = Time.time;
+			PlayerPrefs.SetFloat("Survival Time", timeSinceDeath - timeSinceStart);
 		}
 	}
 
@@ -150,5 +151,11 @@ public class PlayerMovement : MonoBehaviour
 			controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump, lookingUp);
 			jump = false;
 		}
+
+		// Moves player to the left, simulating movement to the right
+		if (controller.m_Grounded)
+			controller.m_Rigidbody2D.position -= new Vector2(ground.scrollSpeedVariable, 0);
+		else
+			controller.m_Rigidbody2D.position -= new Vector2(ground.scrollSpeedVariable / 2, 0);
 	}
 }

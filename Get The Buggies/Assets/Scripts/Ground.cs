@@ -9,8 +9,10 @@ public class Ground : ObjectEntity
     private float groundBlockYPos;
     private Vector3 lastEndPosition;
     private float timeAtStart;
-    private float scrollSpeedMax = .045f;
-    private bool reachedMaxScrollSpeed = false;
+    private float scrollSpeedMax = .13f;
+
+    [HideInInspector]
+    public bool reachedMaxScrollSpeed = false;
 
     private void Awake() {
         spawnedObjectEntities.Add(groundBlockStart);
@@ -30,20 +32,45 @@ public class Ground : ObjectEntity
     {
         timeAtStart = Time.time;
         scrollSpeedVariable = 0;
+        if (PlayerPrefs.GetInt("Difficulty") == 1)
+        {
+            // Hard mode speed
+            scrollSpeedMax = .14f;
+        }
+        else
+        {
+            // Casual mode speed
+            scrollSpeedMax = .08f;
+        }
+    }
+
+    void Update()
+    {
+        lastEndPosition = spawnedObjectEntities[spawnedObjectEntities.Count - 1].Find("EndPosition").position;
+
+        if (CanSpawnNewObjectEntity(lastEndPosition))
+        {
+            SpawnGroundBlock();
+        }
+
+        if (CanDeleteObjectEntity(spawnedObjectEntities[0].position))
+        {
+            DeleteLeftMostObjectEntity();
+        }
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (Time.time - timeAtStart < 3)
         {
-            scrollSpeedVariable += .00005f;
+            scrollSpeedVariable += .0003f;
         }
         else
         {
             if (scrollSpeedVariable < scrollSpeedMax && !reachedMaxScrollSpeed)
             {
-                scrollSpeedVariable += .00007f;
+                scrollSpeedVariable += .0001f;
             }
             else
             {
@@ -51,20 +78,11 @@ public class Ground : ObjectEntity
             }
         }
 
-        if (reachedMaxScrollSpeed) {
-            scrollSpeedVariable += .000002f;
+        if (reachedMaxScrollSpeed)
+        {
+            scrollSpeedVariable += .000015f;
         }
 
         MoveObjectEntities();
-
-        lastEndPosition = spawnedObjectEntities[spawnedObjectEntities.Count-1].Find("EndPosition").position;
-
-        if (CanSpawnNewObjectEntity(lastEndPosition)) { 
-            SpawnGroundBlock();
-        }
-
-        if (CanDeleteObjectEntity(spawnedObjectEntities[0].position)) {
-            DeleteLeftMostObjectEntity();
-        }
     }
 }

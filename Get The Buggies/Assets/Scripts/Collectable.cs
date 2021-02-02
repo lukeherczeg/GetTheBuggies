@@ -12,7 +12,8 @@ public class Collectable : ObjectEntity
     private float timeSinceLastSpawn;
 
     private float screenTopY = 5.8f;
-    private float screenBottomY = -1.4f;
+    private float screenBottomY = -1.1f;
+    private float buggyIncrement = 0;
 
 
     public void SpawnRandomCollectable() {
@@ -33,7 +34,6 @@ public class Collectable : ObjectEntity
     }
 
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -43,26 +43,12 @@ public class Collectable : ObjectEntity
         collectables.Add(redDotToy);
         collectables.Add(starToy);
         SpawnRandomCollectable();
+        buggyIncrement = 0.0001f;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        //Debug.Log("There are " + spawnedObjectEntities.Count + " buggies.");6
-
-        if (Time.time - timeSinceLastSpawn > 3)
-        {
-            SpawnRandomCollectable();
-
-            if (CanDeleteObjectEntity(spawnedObjectEntities[0].position))
-            {
-                DeleteLeftMostObjectEntity();
-            }
-        }
-
-    }
-
-    void Update() {
         spawnedObjectEntities.ForEach((objectEntity) =>
         {
             float yChange = Random.Range(.004f, .006f);
@@ -70,6 +56,31 @@ public class Collectable : ObjectEntity
             objectEntity.position += new Vector3(-ground.scrollSpeedVariable, yChange * Mathf.Sin(Time.time * 1.5f), 0);
         }
         );
+    }
+
+    void Update() {
+        if (!ground.reachedMaxScrollSpeed)
+        {
+            Spawn(2.5f);
+        }
+        else {
+            Spawn(1.5f);
+        }
+        buggyIncrement += 0.00001f;
+    }
+
+    void Spawn(float timeIncrement) { 
+        if (Time.time - timeSinceLastSpawn > timeIncrement - buggyIncrement)
+        {
+            Debug.Log(buggyIncrement);
+            SpawnRandomCollectable();
+
+            // This makes the collectables despawn only every 3 seconds :) (it's bad, deal with it)
+            if (CanDeleteObjectEntity(spawnedObjectEntities[0].position))
+            {
+                DeleteLeftMostObjectEntity();
+            }
+        }
     }
 
     void OnTriggerEnter2D(Collider2D trig)
@@ -80,7 +91,7 @@ public class Collectable : ObjectEntity
             trig.gameObject.name == "Red Dot Toy(Clone)" ||
             trig.gameObject.name == "Mousie Toy(Clone)")
         {
-            DeleteObjectEntity(trig.gameObject);
+            spawnedObjectEntities.Remove(trig.transform);
         }
     }
 }
