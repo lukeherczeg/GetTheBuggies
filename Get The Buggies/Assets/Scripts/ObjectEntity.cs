@@ -15,17 +15,6 @@ public class ObjectEntity : MonoBehaviour
     [HideInInspector] 
     public float scrollSpeedVariable = 0;
     
-
-    private void Awake()
-    {
-    }
-
-    private void Start() {
-    }
-
-    private void Update() {
-    }
-
     protected Transform SpawnObjectEntity(Vector3 spawnPosition)
     {
         Transform newObjectEntity = Instantiate(objectEntity, spawnPosition, Quaternion.identity);
@@ -40,16 +29,6 @@ public class ObjectEntity : MonoBehaviour
         return newObjectEntity;
     }
 
-
-    /* protected Transform SpawnObjectEntities(Vector3[] spawnPositions)
-     {
-         objectEntityList.ForEach((objectEntity) => {
-             Transform newObjectEntity = Instantiate(objectEntity, spawnPosition, Quaternion.identity);
-             spawnedObjectEntities.Add(newObjectEntity);
-             return newObjectEntity;
-         });
-
-     }*/
 
     protected bool CanSpawnNewObjectEntity(Vector3 position) { 
         return (Vector3.Distance(player.m_Rigidbody2D.transform.position, position) < PLAYER_DISTANCE_SPAWN_RADIUS);
@@ -81,7 +60,7 @@ public class ObjectEntity : MonoBehaviour
 
     protected void MoveObjectEntities() {
         spawnedObjectEntities.ForEach((objectEntity) => {
-            objectEntity.position -= new Vector3(scrollSpeedVariable, 0, 0);
+            objectEntity.position -= new Vector3(scrollSpeedVariable * Time.deltaTime, 0, 0);
             }
         );
     }
