@@ -21,18 +21,18 @@ public class PlayerScore : MonoBehaviour
         playerScoreUI.gameObject.GetComponent<Text>().text = ("'Buggies' Collected:  " + playerScore);
 
         // Stop playing the menu music
-        GameObject.FindGameObjectWithTag("MenuMusic").GetComponent<MusicPlayer>().StopMusic();
+        GameObject.FindGameObjectWithTag("MenuMusic")?.GetComponent<MusicPlayer>().StopMusic();
 
         // Depending on difficulty, play the associated music!
         if (PlayerPrefs.GetInt("Difficulty") == 1)
         {
             // Hard mode!
-            GameObject.FindGameObjectWithTag("HardMusic").GetComponent<MusicPlayer>().PlayMusic();
-            GameObject.FindGameObjectWithTag("CasualMusic").GetComponent<MusicPlayer>().StopMusic();
+            GameObject.FindGameObjectWithTag("HardMusic")?.GetComponent<MusicPlayer>().PlayMusic();
+            GameObject.FindGameObjectWithTag("CasualMusic")?.GetComponent<MusicPlayer>().StopMusic();
         }
         else {
-            GameObject.FindGameObjectWithTag("CasualMusic").GetComponent<MusicPlayer>().PlayMusic();
-            GameObject.FindGameObjectWithTag("HardMusic").GetComponent<MusicPlayer>().StopMusic();
+            GameObject.FindGameObjectWithTag("CasualMusic")?.GetComponent<MusicPlayer>().PlayMusic();
+            GameObject.FindGameObjectWithTag("HardMusic")?.GetComponent<MusicPlayer>().StopMusic();
         }
     }
 
@@ -49,13 +49,15 @@ public class PlayerScore : MonoBehaviour
             trig.gameObject.name == "Red Dot Toy(Clone)" ||
             trig.gameObject.name == "Mousie Toy(Clone)")
         {
+
+            // Guards against double buggy collection bug
             if (Time.time - timeSinceBuggy > .01)
             {
-                playerScore += 1;
+                // Add more if it's a red dot!
+                playerScore += (trig.gameObject.name == "Red Dot Toy(Clone)") ? 2 : 1;
                 audioSource.PlayOneShot(audioSource.clip, .5f);
                 timeSinceBuggy = Time.time;
             }
-
             Destroy(trig.gameObject);
         }
     }

@@ -12,6 +12,8 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private Transform m_CeilingCheck;                          // A position marking where to check for ceilings
 	[SerializeField] private Collider2D m_CrouchDisableCollider;                // A collider that will be disabled when crouching
 
+	public Animator animator;
+
 	public GameObject bigJumpOn, bigJumpOff;
 
 	[HideInInspector]
@@ -87,14 +89,20 @@ public class CharacterController2D : MonoBehaviour
 
 	public void Move(float move, bool crouch, bool jump, bool lookingUp)
 	{
+		bool canJump = true;
+
 		// If crouching, check to see if the character can stand up
 		if (!crouch)
 		{
 			// If the character has a ceiling preventing them from standing up, keep them crouching
 			if (Physics2D.OverlapCircle(m_CeilingCheck.position, k_CeilingRadius, m_WhatIsGround))
 			{
+				canJump = false;
 				crouch = true;
 			}
+		}
+		else {
+			canJump = false;
 		}
 
 		//only control the player if grounded or airControl is turned on
@@ -157,7 +165,7 @@ public class CharacterController2D : MonoBehaviour
 			}
 		}
 		// If the player should jump...
-		if (m_Grounded && jump)
+		if (m_Grounded && jump && canJump)
 		{
 			// Add a vertical force to the player.
 			m_Grounded = false;
@@ -177,6 +185,8 @@ public class CharacterController2D : MonoBehaviour
 				normalJumpStartTime = Time.time;
 				m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
 			}
+
+			animator.SetBool("IsJumping", true);
 		}
 
 		if (Time.time - superJumpStartTime > superJumpCD)

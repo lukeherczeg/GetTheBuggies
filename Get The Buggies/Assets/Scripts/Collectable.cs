@@ -72,7 +72,6 @@ public class Collectable : ObjectEntity
     void Spawn(float timeIncrement) { 
         if (Time.time - timeSinceLastSpawn > timeIncrement - buggyIncrement)
         {
-            Debug.Log(buggyIncrement);
             SpawnRandomCollectable();
 
             // This makes the collectables despawn only every 3 seconds :) (it's bad, deal with it)

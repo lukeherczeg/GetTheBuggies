@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3856622231510469009}
   - component: {fileID: 3856622231510469011}
   - component: {fileID: 3856622231510469008}
+  - component: {fileID: 1453135541}
   m_Layer: 0
   m_Name: TV Tunnel
   m_TagString: Untagged
@@ -45,7 +46,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.020965576, y: -0.46696842}
+  m_Offset: {x: 0.016382217, y: -0.47076428}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -56,7 +57,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.1677237, y: 3.296282}
+  m_Size: {x: 4.883545, y: 3.3038738}
   m_EdgeRadius: 0
 --- !u!212 &3856622231510469008
 SpriteRenderer:
@@ -108,3 +109,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1453135541
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3856622231510469014}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 2.532259, y: -1.8808111}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 7.84, y: 7.84}
+    newSize: {x: 3.84, y: 2.4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.23482132, y: 0.4851725}
+  m_EdgeRadius: 0
