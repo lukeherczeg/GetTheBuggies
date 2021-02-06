@@ -6,7 +6,7 @@
 * **Rachel West** - _Artist & Designer - **[GitHub](https://github.com/rachel-west) | [Twitter](https://twitter.com/Piggyplum)**_
 _______________________________________________________________________________________________________________________________________
 
-## [Play now!](https://lukeherczeg.itch.io/get-the-buggies "Itch.io Page")
+# [Play now!](https://lukeherczeg.itch.io/get-the-buggies "Itch.io Page")
 ### [Video Demo](https://www.youtube.com/watch?v=sJOKg8VoT5E "Demo")
 ### [Official Project Submission](https://devpost.com/software/get-the-buggies "Project Submission")
 
