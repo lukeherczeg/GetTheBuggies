@@ -1,4 +1,5 @@
 <img src = "https://cdn.discordapp.com/attachments/347967840655245316/805852350555488256/cover_art.png">
+
 <img src = "https://cdn.discordapp.com/attachments/347967840655245316/811277833582280704/unknown.png" height = "37%" width = "37%">
 
 
